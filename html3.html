@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en_US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Savers</title>
+    <link rel="icon" href="./images/new-logo.png" type="image/png" />
+    <link rel="shortcut icon" href="./images/new-logo.png" type="image/png" />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16921817895"
+    ></script>
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MC55FSL5");
+    </script>
+
+    <script src="./js/bootstrap.js?v=3"></script>
+
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="./css/form-pages.css?v=20260717i" />
+  </head>
+
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MC55FSL5"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <main>
+      <div
+        id="tracking-config-error"
+        class="hidden"
+        style="
+          display: none;
+          max-width: 42rem;
+          margin: 12px auto 0;
+          padding: 12px 16px;
+          background: #fef2f2;
+          color: #991b1b;
+          border: 1px solid #fecaca;
+          border-radius: 8px;
+          text-align: center;
+          font-size: 0.95rem;
+        "
+        role="alert"
+      ></div>
+      <div class="form-header-bar">
+        <img src="./images/company_logo.png" alt="Company logo" class="form-header-logo" />
+        <span id="domain-name"></span>
+      </div>
+
+      <h1 class="form-main-title">
+        CONGRATULATIONS!
+      </h1>
+
+      <div class="form-divider"></div>
+
+      <div class="form-container">
+        <div id="medicare-question">
+          <p class="form-question">Are you on Medicare Parts A &amp; B?</p>
+          <div class="form-buttons">
+            <button type="button" class="form-btn form-step-btn" data-form-step="3" data-form-value="Yes">YES</button>
+            <button type="button" class="form-btn form-step-btn" data-form-step="3" data-form-value="No">NO</button>
+          </div>
+        </div>
+
+        <div id="form-result" class="form-step">
+          <div class="form-result-card">
+            <p class="form-result-success">Great News You Are Eligible!</p>
+            <p id="form-result-instruction" class="form-result-instruction">Click the button below to speak with a licensed insurance agent to claim your grocery card!</p>
+            <a
+              id="phone-number"
+              href="javascript:void(0)"
+              onclick="trackGTG(event)"
+              class="form-result-cta phone-cta"
+              style="display: none"
+            >
+              <span id="phone_retreaver">Loading...</span>
+            </a>
+            <button
+              type="button"
+              id="claim-now-contact-button"
+              class="form-result-cta claim-contact-cta"
+              style="display: none"
+            >
+              CLAIM NOW
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div
+        class="mx-auto max-w-7xl px-4 text-sm sm:text-md leading-5 sm:leading-6 text-gray-500"
+      >
+        <p style="text-align: center">
+          This site is not a part of the Google website or Google LLC.
+          Additionally, this site is NOT endorsed by Google in any way. 'Google'
+          is a trademark of Google LLC.
+        </p>
+        <p style="text-align: center; margin-top: 15px">
+          *This website is not affiliated with or endorsed by any government
+          agency. Our mission is to help you make confident, informed choices
+          about your Medicare Advantage plan options. We are an independent
+          educational resource and are not a government agency, nor are we
+          affiliated with or endorsed by the U.S. government or the federal
+          Medicare program. We do not issue or facilitate official government
+          documents or services. Instead, we connect you with licensed insurance
+          agents who can review plan options available in your area. For
+          official Medicare information, please visit the Centers for Medicare &amp;
+          Medicaid Services (CMS).
+        </p>
+        <div
+          class="mx-auto max-w-7xl px-4 text-sm sm:text-md leading-5 sm:leading-6 text-gray-500"
+          style="
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding-top: 15px;
+          "
+        >
+          <p>@2026. All rights Reserved.</p>
+          <p class="text-center text-blue-400">
+            <span>
+              <a href="/privacy" target="_blank">Privacy Policy</a> |
+              <a href="/terms" target="_blank">Terms &amp; Conditions</a> |
+              <a href="/contact" target="_blank">Contact Us</a>
+            </span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/app.js?v=3"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+        try {
+          const result = await (window.domainRoutePromise || Promise.resolve(null));
+          if (result && result.ok && result.callgrid && window.updatePhoneNumberInDOM) {
+            const digits = result.callgrid.phoneNumber;
+            const raw = String(digits).replace(/\D/g, "");
+            let formatted = raw;
+            if (raw.length >= 11) {
+              formatted =
+                "+1 (" +
+                raw.slice(1, 4) +
+                ") " +
+                raw.slice(4, 7) +
+                "-" +
+                raw.slice(7, 11);
+            } else if (raw.length === 10) {
+              formatted =
+                "+1 (" +
+                raw.slice(0, 3) +
+                ") " +
+                raw.slice(3, 6) +
+                "-" +
+                raw.slice(6, 10);
+            }
+            window.updatePhoneNumberInDOM(raw, formatted);
+          }
+        } catch (error) {
+          console.error("Error applying route phone number:", error);
+        }
+      });
+    </script>
+
+    <script>
+      (function () {
+        let domainName = window.location.hostname;
+        domainName = domainName.replace(/^www\./, "");
+        domainName = domainName.toUpperCase();
+        const domainElement = document.getElementById("domain-name");
+        if (domainElement) {
+          domainElement.textContent = domainName;
+        }
+      })();
+    </script>
+  </body>
+</html>

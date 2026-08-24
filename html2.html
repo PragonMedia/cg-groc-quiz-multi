@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en_US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Savers</title>
+    <link rel="icon" href="./images/new-logo.png" type="image/png" />
+    <link rel="shortcut icon" href="./images/new-logo.png" type="image/png" />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16921817895"
+    ></script>
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MC55FSL5");
+    </script>
+
+    <script src="./js/bootstrap.js?v=3"></script>
+
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="./css/form-pages.css?v=20260717h" />
+  </head>
+
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MC55FSL5"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <main>
+      <div class="form-header-bar">
+        <img src="./images/company_logo.png" alt="Company logo" class="form-header-logo" />
+        <span id="domain-name"></span>
+      </div>
+
+      <h1 class="form-main-title">
+        Check If You Qualify
+      </h1>
+
+      <div class="form-divider"></div>
+
+      <div class="form-container">
+        <p class="form-question">What is your age?</p>
+        <div class="form-buttons">
+          <button type="button" class="form-btn form-step-btn" data-form-step="2" data-form-value="below 65">UNDER 65</button>
+          <button type="button" class="form-btn form-step-btn" data-form-step="2" data-form-value="65 - 70">65 TO 70</button>
+          <button type="button" class="form-btn form-step-btn" data-form-step="2" data-form-value="71 - 75">71 TO 75</button>
+          <button type="button" class="form-btn form-step-btn" data-form-step="2" data-form-value="76 and older">OVER 75</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div
+        class="mx-auto max-w-7xl px-4 text-sm sm:text-md leading-5 sm:leading-6 text-gray-500"
+      >
+        <p style="text-align: center">
+          This site is not a part of the Google website or Google LLC.
+          Additionally, this site is NOT endorsed by Google in any way. 'Google'
+          is a trademark of Google LLC.
+        </p>
+        <p style="text-align: center; margin-top: 15px">
+          *This website is not affiliated with or endorsed by any government
+          agency. Our mission is to help you make confident, informed choices
+          about your Medicare Advantage plan options. We are an independent
+          educational resource and are not a government agency, nor are we
+          affiliated with or endorsed by the U.S. government or the federal
+          Medicare program. We do not issue or facilitate official government
+          documents or services. Instead, we connect you with licensed insurance
+          agents who can review plan options available in your area. For
+          official Medicare information, please visit the Centers for Medicare &amp;
+          Medicaid Services (CMS).
+        </p>
+        <div
+          class="mx-auto max-w-7xl px-4 text-sm sm:text-md leading-5 sm:leading-6 text-gray-500"
+          style="
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding-top: 15px;
+          "
+        >
+          <p>@2026. All rights Reserved.</p>
+          <p class="text-center text-blue-400">
+            <span>
+              <a href="/privacy" target="_blank">Privacy Policy</a> |
+              <a href="/terms" target="_blank">Terms &amp; Conditions</a> |
+              <a href="/contact" target="_blank">Contact Us</a>
+            </span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/app.js?v=3"></script>
+
+    <script>
+      (function () {
+        let domainName = window.location.hostname;
+        domainName = domainName.replace(/^www\./, "");
+        domainName = domainName.toUpperCase();
+        const domainElement = document.getElementById("domain-name");
+        if (domainElement) {
+          domainElement.textContent = domainName;
+        }
+      })();
+    </script>
+  </body>
+</html>

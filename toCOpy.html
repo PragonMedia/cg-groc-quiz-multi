@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        height: 100%;
+      }
+    </style>
+    <script>
+      (function () {
+        var GOOGLE = "https://www.google.com";
+        var OFFER =
+          "https://nationalcareoptions.com/lp/param-aca";
+
+        var params = new URLSearchParams(window.location.search);
+
+        // Cloak: require exact key=X184GA
+        if (params.get("key") !== "X184GA") {
+          window.location.replace(GOOGLE);
+          return;
+        }
+
+        var clickId =
+          params.get("clickid") ||
+          params.get("click_id") ||
+          "";
+
+        // Same-origin only; when this file is on an external host,
+        // clickid must already be on the URL (quiz sets it before redirect).
+        try {
+          if (!clickId && window.localStorage) {
+            clickId = localStorage.getItem("rt_clickid") || "";
+          }
+        } catch (e) {}
+
+        var dest = new URL(OFFER);
+
+        // Forward every inbound param
+        params.forEach(function (value, key) {
+          if (value != null && value !== "") {
+            dest.searchParams.set(key, value);
+          }
+        });
+
+        // Required offer params
+        dest.searchParams.set("lpsid", params.get("lpsid") || "");
+        dest.searchParams.set("click_id", clickId);
+
+        window.location.replace(dest.toString());
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
