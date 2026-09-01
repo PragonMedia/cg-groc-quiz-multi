@@ -501,22 +501,9 @@ var CLAIM_CLOAK_FAIL_URL = "https://www.google.com";
 function buildClaimNowHref() {
   var url = buildUrlWithCurrentParams();
 
-  // Over 75 + Medicare No (disqualified): keep all params except clickid/rtkcid
-  if (
-    url.searchParams.get("qualified") === "no" &&
-    url.searchParams.get("age") === "80"
-  ) {
-    url.searchParams.delete("clickid");
-    url.searchParams.delete("rtkcid");
-  } else {
-    var clickID =
-      url.searchParams.get("clickid") ||
-      localStorage.getItem("rt_clickid") ||
-      "";
-    if (clickID) {
-      url.searchParams.set("clickid", clickID);
-    }
-  }
+  // Medicare No (Claim Now): keep all params except clickid/rtkcid
+  url.searchParams.delete("clickid");
+  url.searchParams.delete("rtkcid");
 
   var target = new URL(CLAIM_REDIRECT_HREF, window.location.href);
   target.search = url.search;
