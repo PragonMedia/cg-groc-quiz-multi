@@ -487,11 +487,13 @@ function startCountdown() {
 function showResultPanel() {
   var questionPanel = document.getElementById("medicare-question");
   var resultPanel = document.getElementById("form-result");
+  var mainTitle = document.querySelector(".form-main-title");
   if (questionPanel) questionPanel.style.display = "none";
   if (resultPanel) {
     resultPanel.style.display = "block";
     resultPanel.classList.add("active");
   }
+  if (mainTitle) mainTitle.textContent = "Congratulations";
 }
 
 // Drop this HTML on your external host, then set CLAIM_REDIRECT_HREF to that full URL.
