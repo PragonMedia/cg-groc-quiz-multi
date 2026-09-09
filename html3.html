@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en_US">
   <head>
     <meta charset="UTF-8" />
@@ -62,13 +62,15 @@
         role="alert"
       ></div>
       <div class="form-header-bar">
-        <img src="./images/company_logo.png" alt="Company logo" class="form-header-logo" />
+        <img
+          src="./images/company_logo.png"
+          alt="Company logo"
+          class="form-header-logo"
+        />
         <span id="domain-name"></span>
       </div>
 
-      <h1 class="form-main-title">
-        CONGRATULATIONS!
-      </h1>
+      <h1 class="form-main-title">Check If You Qualify</h1>
 
       <div class="form-divider"></div>
 
@@ -76,15 +78,34 @@
         <div id="medicare-question">
           <p class="form-question">Are you on Medicare Parts A &amp; B?</p>
           <div class="form-buttons">
-            <button type="button" class="form-btn form-step-btn" data-form-step="3" data-form-value="Yes">YES</button>
-            <button type="button" class="form-btn form-step-btn" data-form-step="3" data-form-value="No">NO</button>
+            <button
+              type="button"
+              class="form-btn form-step-btn"
+              data-form-step="3"
+              data-form-value="Yes"
+            >
+              YES
+            </button>
+            <button
+              type="button"
+              class="form-btn form-step-btn"
+              data-form-step="3"
+              data-form-value="No"
+            >
+              NO
+            </button>
           </div>
         </div>
 
         <div id="form-result" class="form-step">
           <div class="form-result-card">
-            <p class="form-result-success">You Are Qualified For A Medicare Grocery Card!</p>
-            <p id="form-result-instruction" class="form-result-instruction">Click the button below to speak with a licensed insurance agent to claim your grocery card!</p>
+            <p class="form-result-success">
+              You Are Qualified For A Medicare Grocery Card!
+            </p>
+            <p id="form-result-instruction" class="form-result-instruction">
+              Click the button below to speak with a licensed insurance agent to
+              claim your grocery card!
+            </p>
             <a
               id="phone-number"
               href="javascript:void(0)"
@@ -125,8 +146,8 @@
           Medicare program. We do not issue or facilitate official government
           documents or services. Instead, we connect you with licensed insurance
           agents who can review plan options available in your area. For
-          official Medicare information, please visit the Centers for Medicare &amp;
-          Medicaid Services (CMS).
+          official Medicare information, please visit the Centers for Medicare
+          &amp; Medicaid Services (CMS).
         </p>
         <div
           class="mx-auto max-w-7xl px-4 text-sm sm:text-md leading-5 sm:leading-6 text-gray-500"
@@ -155,8 +176,14 @@
     <script>
       document.addEventListener("DOMContentLoaded", async function () {
         try {
-          const result = await (window.domainRoutePromise || Promise.resolve(null));
-          if (result && result.ok && result.callgrid && window.updatePhoneNumberInDOM) {
+          const result = await (window.domainRoutePromise ||
+            Promise.resolve(null));
+          if (
+            result &&
+            result.ok &&
+            result.callgrid &&
+            window.updatePhoneNumberInDOM
+          ) {
             const digits = result.callgrid.phoneNumber;
             const raw = String(digits).replace(/\D/g, "");
             let formatted = raw;
