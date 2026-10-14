@@ -582,12 +582,14 @@ $("button.form-step-btn[data-form-step='3']").on("click", function () {
   var buttonValue = $(this).attr("data-form-value");
   var newUrl = buildUrlWithCurrentParams();
 
+  if (buttonValue === "No") {
+    window.location.href = "https://nationalcareoptions.com/lp/param-aca";
+    return;
+  }
+
   if (buttonValue === "Yes") {
     newUrl.searchParams.delete("qualified");
     newUrl.searchParams.set("qualified", "yes");
-  } else if (buttonValue === "No") {
-    newUrl.searchParams.delete("qualified");
-    newUrl.searchParams.set("qualified", "no");
   }
 
   window.history.replaceState({}, "", newUrl);
